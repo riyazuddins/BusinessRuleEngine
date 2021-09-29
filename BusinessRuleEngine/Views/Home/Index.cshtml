@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    @using (Html.BeginForm("ProcessPayment", "Home"))
+    {
+        <h1 class="display-4">Select the Product for CheckOut</h1>
+        @model Payment
+
+        @Html.DropDownListFor(m => m.Product,
+                         new SelectList(Enum.GetValues(typeof(Product))),
+                         "Select Product Type")
+
+        <input id="Submit" type="submit" value="Check Out" class="btn" />
+    }
+</div>
